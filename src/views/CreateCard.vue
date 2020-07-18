@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <form action="" class="form">
+    <h1 class="form__title">Create new card</h1>
+  </form>
 </template>
