@@ -1,11 +1,8 @@
 <template>
   <div class="cards-box">
-    <div class="cards-box__column">
+    <div :key="i" v-for="(column, i) in columns" class="cards-box__column">
       <Card />
     </div>
-    <div class="cards-box__column"></div>
-    <div class="cards-box__column"></div>
-    <div class="cards-box__column"></div>
   </div>
 </template>
 
