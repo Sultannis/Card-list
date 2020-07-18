@@ -110,13 +110,17 @@ export default {
 
 <style lang="scss" scoped>
 .cards-box {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: flex;
+  margin-top: 10px;
+  height: calc(100vh - 70px);
+  padding-bottom: 10px;
 
   &__column {
     width: 25%;
-    border: 1px solid rgb(36, 173, 144);
     padding-top: 10px;
+    overflow-y: auto;
   }
 }
 </style>

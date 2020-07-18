@@ -25,6 +25,8 @@ export default {
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 15px;
+  background-color: white;
 
   &__title {
     width: 100%;

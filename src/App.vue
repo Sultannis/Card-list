@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
@@ -14,10 +12,6 @@
   text-align: center;
   color: #2c3e50;
   box-sizing: border-box;
-}
-
-.container {
-  width: 70%;
-  margin: auto;
+  background-color: #f8f8f8;
 }
 </style>
