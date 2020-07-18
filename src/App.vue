@@ -19,6 +19,5 @@
 .container {
   width: 70%;
   margin: auto;
-  border: 1px solid #ccc;
 }
 </style>
