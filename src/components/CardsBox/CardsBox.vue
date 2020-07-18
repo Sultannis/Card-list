@@ -1,7 +1,7 @@
 <template>
   <div class="cards-box">
     <div :key="i" v-for="(column, i) in columns" class="cards-box__column">
-      <Card />
+      <Card :key="j" v-for="(card, j) in column.cards" />
     </div>
   </div>
 </template>
