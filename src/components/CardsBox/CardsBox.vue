@@ -24,11 +24,11 @@ export default {
 .cards-box {
   width: 100%;
   display: flex;
-  border: 1px rgb(203, 122, 235) solid;
 
   &__column {
     width: 25%;
     border: 1px solid rgb(36, 173, 144);
+    padding-top: 10px;
   }
 }
 </style>
