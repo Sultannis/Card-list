@@ -1,6 +1,6 @@
 <template>
-  <header class="Header">
-    <router-link to="/create">Create new card</router-link>
+  <header class="header">
+    <router-link class="header__btn" to="/create">Create new card</router-link>
   </header>
 </template>
 
