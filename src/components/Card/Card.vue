@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   width: 95%;
-  height: 300px;
+  height: 200px;
   margin: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -30,14 +30,14 @@ export default {
 
   &__title {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     text-align-last: left;
     color: rgb(41, 106, 248);
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 13px;
     text-align: left;
     line-height: 1.1;
     overflow-y: auto;

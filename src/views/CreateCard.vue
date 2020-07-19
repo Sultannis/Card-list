@@ -1,18 +1,18 @@
 <template>
   <div class="form">
     <h2 class="form__title">Create new card</h2>
-    <a-form-model :model="form">
+    <a-form-model :model="card">
       <a-form-model-item label="Card Title">
-        <a-input v-model="form.title" />
+        <a-input v-model="card.title" />
       </a-form-model-item>
       <a-form-model-item label="Activity form">
-        <a-input v-model="form.desc" type="textarea" />
+        <a-input v-model="card.desc" type="textarea" />
       </a-form-model-item>
       <a-form-model-item>
         <a-button type="primary" @click="onSubmit">
           Create
         </a-button>
-        <router-link @click="(form.title = ''), (form.desc = '')" to="/">
+        <router-link @click="(card.title = ''), (card.desc = '')" to="/">
           <a-button style="margin-left: 10px;">
             Cancel
           </a-button>
@@ -27,7 +27,7 @@ export default {
     return {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
-      form: {
+      card: {
         title: "",
         desc: ""
       }
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("submit!", this.form);
+      this.$emit("newCard", this.card);
     }
   }
 };
