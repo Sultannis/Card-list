@@ -18,12 +18,12 @@ export default {
   data() {
     return {
       switch: true
-    }
+    };
   },
   methods: {
     onChange() {
       this.switch = !this.switch;
-      console.log(this.switch);
+      this.$emit("switchChange", this.switch);
     }
   }
 };

@@ -12,6 +12,7 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[0].cards"
           :key="i"
+          @dblclick="showModal"
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -30,6 +31,7 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[1].cards"
           :key="i"
+          @dblclick="showModal"
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -47,6 +49,7 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[2].cards"
           :key="i"
+          @dblclick="showModal"
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -64,11 +67,20 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[3].cards"
           :key="i"
+          @dblclick="showModal"
         >
           <Card :title="element.title" :description="element.description" />
         </div>
       </draggable>
     </div>
+    <a-modal
+      title="Title"
+      :visible="visible"
+      @cancel="handleCancel"
+      @ok="handleOk"
+    >
+      <p>{{ ModalText }}</p>
+    </a-modal>
   </div>
 </template>
 
@@ -80,10 +92,19 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   display: "Two Lists",
   order: 1,
+  data() {
+    return {
+      visible: false,
+      currentCard: null
+    };
+  },
   name: "CardsBox",
   components: {
     Card,
     draggable
+  },
+  props: {
+    switchValue: Boolean
   },
   mounted() {
     if (localStorage.getItem("allColumns")) {
@@ -114,6 +135,18 @@ export default {
     },
     saveDagnDrop() {
       this.saveCard;
+    },
+
+    showModal() {
+      this.visible = true;
+    },
+    handleCancel() {
+      console.log("Clicked cancel button");
+      this.visible = false;
+    },
+    handleOk(e) {
+      console.log(e);
+      this.visible = false;
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Header />
-    <CardsBox />
+    <Header @switchChange="onSwitch" />
+    <CardsBox :switch="onSwitch()" />
   </div>
 </template>
 
@@ -12,6 +12,12 @@ import CardsBox from "@/components/CardsBox/CardsBox.vue";
 
 export default {
   name: "Home",
+  methods: {
+    onSwitch(value) {
+      const switchValue = value;
+      return switchValue;
+    }
+  },
   components: {
     Header,
     CardsBox
