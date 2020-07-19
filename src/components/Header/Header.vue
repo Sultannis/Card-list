@@ -7,12 +7,14 @@
     >
     <div class="header__switch">
       <h3 class="header__title">Drag -n drop</h3>
-      <a-switch default-checked @change="onChange" />
+      <a-switch default-checked @change="onSwitch" />
     </div>
   </header>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Header",
   data() {
@@ -21,10 +23,7 @@ export default {
     };
   },
   methods: {
-    onChange() {
-      this.switch = !this.switch;
-      this.$emit("switchChange", this.switch);
-    }
+    ...mapMutations(["onSwitch"])
   }
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="cards-box">
+    <div class="overlay" v-if="getSwitch"></div>
     <div class="cards-box__column">
       <draggable
         class="list-group"
@@ -120,9 +121,6 @@ export default {
     Card,
     draggable
   },
-  props: {
-    switchValue: Boolean
-  },
   mounted() {
     if (localStorage.getItem("allColumns")) {
       try {
@@ -133,7 +131,7 @@ export default {
       }
     }
   },
-  computed: mapGetters(["allColumns"]),
+  computed: mapGetters(["allColumns", "getSwitch"]),
   methods: {
     ...mapMutations(["createCard", "getLocalStorageData", "saveCard"]),
     add: function() {
@@ -156,14 +154,11 @@ export default {
 
     showModal() {
       this.visible = true;
-      console.log(this.currentCardDesc);
     },
     handleCancel() {
-      console.log("Clicked cancel button");
       this.visible = false;
     },
-    handleOk(e) {
-      console.log(e);
+    handleOk() {
       this.visible = false;
     }
   }
@@ -188,5 +183,12 @@ export default {
     overflow: hidden;
     overflow-y: auto;
   }
+}
+.overlay {
+  position: absolute;
+  width: 90%;
+  height: calc(100vh - 70px);
+  bottom: 0;
+  z-index: 3;
 }
 </style>

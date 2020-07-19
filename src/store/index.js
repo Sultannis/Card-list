@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    dragnDrop: false,
     columns: [
       {
         cards: [
@@ -40,6 +41,9 @@ export default new Vuex.Store({
   getters: {
     allColumns(state) {
       return state.columns;
+    },
+    getSwitch(state) {
+      return state.dragnDrop;
     }
   },
   mutations: {
@@ -47,6 +51,10 @@ export default new Vuex.Store({
       state.columns[0].cards.unshift(newCard);
       const parsed = JSON.stringify(state.columns);
       localStorage.setItem("allColumns", parsed);
+    },
+    onSwitch(state) {
+      state.dragnDrop = !state.dragnDrop;
+      console.log(state.dragnDrop);
     },
     saveCard(state) {
       const parsed = JSON.stringify(state.columns);
