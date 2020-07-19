@@ -21,11 +21,13 @@ export default new Vuex.Store({
         ]
       },
       {
-        cards: [          {
-          title: "Card Title",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo akkomon Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisic  "
-        }]
+        cards: [
+          {
+            title: "Card Title",
+            description:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo akkomon Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisic  "
+          }
+        ]
       },
       {
         cards: []
@@ -43,6 +45,15 @@ export default new Vuex.Store({
   mutations: {
     createCard(state, newCard) {
       state.columns[0].cards.unshift(newCard);
+      const parsed = JSON.stringify(state.columns);
+      localStorage.setItem("allColumns", parsed);
+    },
+    saveCard(state) {
+      const parsed = JSON.stringify(state.columns);
+      localStorage.setItem("allColumns", parsed);
+    },
+    getLocalStorageData(state, columns) {
+      state.columns = columns;
     }
   },
   actions: {},

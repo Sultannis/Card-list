@@ -78,7 +78,7 @@
         style="height: 100%;"
         :list="allColumns[0].cards"
         group="people"
-        @change="log"
+        @change="saveCard"
       >
         <div
           class="list-group-item"
@@ -96,7 +96,7 @@
         class="list-group"
         :list="allColumns[1].cards"
         group="people"
-        @change="log"
+        @change="saveCard"
       >
         <div
           class="list-group-item"
@@ -113,7 +113,7 @@
         class="list-group"
         :list="allColumns[2].cards"
         group="people"
-        @change="log"
+        @change="saveCard"
       >
         <div
           class="list-group-item"
@@ -130,7 +130,7 @@
         class="list-group"
         :list="allColumns[3].cards"
         group="people"
-        @change="log"
+        @change="saveCard"
       >
         <div
           class="list-group-item"
@@ -147,7 +147,7 @@
 <script>
 import Card from "@/components/Card/Card";
 import draggable from "vuedraggable";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   display: "Two Lists",
@@ -157,8 +157,19 @@ export default {
     Card,
     draggable
   },
+  mounted() {
+    if (localStorage.getItem("allColumns")) {
+      try {
+        let columns = JSON.parse(localStorage.getItem("allColumns"));
+        this.getLocalStorageData(columns);
+      } catch (e) {
+        localStorage.removeItem("allColumns");
+      }
+    }
+  },
   computed: mapGetters(["allColumns"]),
   methods: {
+    ...mapMutations(["createCard", "getLocalStorageData", "saveCard"]),
     add: function() {
       this.list.push({ name: "Juan" });
     },
@@ -172,6 +183,9 @@ export default {
     },
     log: function(evt) {
       window.console.log(evt);
+    },
+    saveDagnDrop() {
+      this.saveCard;
     }
   }
 };
