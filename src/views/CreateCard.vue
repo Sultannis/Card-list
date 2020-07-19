@@ -22,6 +22,8 @@
   </div>
 </template>
 <script>
+import cardForm from "vuex";
+
 export default {
   data() {
     return {
@@ -33,11 +35,12 @@ export default {
       }
     };
   },
-  methods: {
-    onSubmit() {
-      this.$emit("newCard", this.card);
-    }
-  }
+  mutations: {},
+  // methods: {
+  //   onSubmit() {
+  //     this.$store.commit("onSubmit(this.card)");
+  //   }
+  // }
 };
 </script>
 
