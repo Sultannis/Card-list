@@ -10,13 +10,7 @@ import CardForm from "@/components/CardForm/CardForm";
 export default {
   components: {
     CardForm
-  },
-  mutations: {}
-  // methods: {
-  //   onSubmit() {
-  //     this.$store.commit("onSubmit(this.card)");
-  //   }
-  // }
+  }
 };
 </script>
 

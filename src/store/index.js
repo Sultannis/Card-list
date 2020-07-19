@@ -90,14 +90,13 @@ export default new Vuex.Store({
   },
   getters: {
     allColumns(state) {
-      return state.columns
+      return state.columns;
     }
   },
   mutations: {
-    // onSubmit(state, card) {
-    //   const column = state.columns[0];
-    //   column.cards.push(card);
-    // }
+    createCard(state, newCard) {
+      state.columns[0].cards.unshift(newCard);
+    }
   },
   actions: {},
   modules: {}

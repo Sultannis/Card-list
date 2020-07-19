@@ -1,15 +1,17 @@
 <template>
-  <a-form-model :model="card">
-    <a-form-model-item label="Card Title">
+  <a-form-model>
+    <a-form-model-item v-model="card" label="Card Title">
       <a-input v-model="card.title" />
     </a-form-model-item>
     <a-form-model-item label="Activity form">
       <a-input v-model="card.desc" type="textarea" />
     </a-form-model-item>
     <a-form-model-item>
-      <a-button type="primary" @click="onSubmit">
-        Create
-      </a-button>
+      <router-link @click="(card.title = ''), (card.desc = '')" to="/">
+        <a-button type="primary" @click="submit">
+          Create
+        </a-button>
+      </router-link>
       <router-link @click="(card.title = ''), (card.desc = '')" to="/">
         <a-button style="margin-left: 10px;">
           Cancel
@@ -20,6 +22,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "CardForm",
   data() {
@@ -31,6 +35,15 @@ export default {
         desc: ""
       }
     };
+  },
+  methods: {
+    ...mapMutations(["createCard"]),
+    submit() {
+      this.createCard({
+        title: this.card.title,
+        description: this.card.desc
+      });
+    }
   }
 };
 </script>
