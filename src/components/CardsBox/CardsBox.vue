@@ -12,7 +12,11 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[0].cards"
           :key="i"
-          @dblclick="showModal"
+          @dblclick="
+            showModal();
+            currentCardTitle = element.title;
+            currentCardDesc = element.description;
+          "
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -31,7 +35,11 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[1].cards"
           :key="i"
-          @dblclick="showModal"
+          @dblclick="
+            showModal();
+            currentCardTitle = element.title;
+            currentCardDesc = element.description;
+          "
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -49,7 +57,11 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[2].cards"
           :key="i"
-          @dblclick="showModal"
+          @dblclick="
+            showModal();
+            currentCardTitle = element.title;
+            currentCardDesc = element.description;
+          "
         >
           <Card :title="element.title" :description="element.description" />
         </div>
@@ -67,19 +79,23 @@
           class="list-group-item"
           v-for="(element, i) in allColumns[3].cards"
           :key="i"
-          @dblclick="showModal"
+          @dblclick="
+            showModal();
+            currentCardTitle = element.title;
+            currentCardDesc = element.description;
+          "
         >
           <Card :title="element.title" :description="element.description" />
         </div>
       </draggable>
     </div>
     <a-modal
-      title="Title"
+      :title="currentCardTitle"
       :visible="visible"
       @cancel="handleCancel"
       @ok="handleOk"
     >
-      <p>{{ ModalText }}</p>
+      <p>{{ currentCardDesc }}</p>
     </a-modal>
   </div>
 </template>
@@ -95,7 +111,8 @@ export default {
   data() {
     return {
       visible: false,
-      currentCard: null
+      currentCardTitle: null,
+      currentCardDesc: null
     };
   },
   name: "CardsBox",
@@ -139,6 +156,7 @@ export default {
 
     showModal() {
       this.visible = true;
+      console.log(this.currentCardDesc);
     },
     handleCancel() {
       console.log("Clicked cancel button");
