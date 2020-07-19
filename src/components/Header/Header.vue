@@ -15,9 +15,15 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      switch: true
+    }
+  },
   methods: {
-    onChange(checked) {
-      console.log(`a-switch to ${checked}`);
+    onChange() {
+      this.switch = !this.switch;
+      console.log(this.switch);
     }
   }
 };
