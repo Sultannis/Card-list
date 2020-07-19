@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   width: 95%;
-  height: 200px;
+  height: 180px;
   margin: auto;
   border: 1px solid #ccc;
   border-radius: 10px;
