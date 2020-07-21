@@ -22,13 +22,7 @@ export default new Vuex.Store({
         ]
       },
       {
-        cards: [
-          {
-            title: "Card Title",
-            description:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nemo akkomon Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisic  "
-          }
-        ]
+        cards: []
       },
       {
         cards: []
